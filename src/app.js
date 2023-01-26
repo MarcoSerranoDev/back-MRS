@@ -6,6 +6,7 @@ const productsRoutes = require("./routes/products.routes");
 
 //Initialization
 const app = express();
+require("./db");
 
 //Settings
 app.set("port", process.env.PORT || 4000);

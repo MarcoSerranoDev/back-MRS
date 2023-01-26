@@ -1,4 +1,14 @@
-const createProduct = async (req, res) => {};
+const Product = require("../models/product");
+
+const createProduct = async (req, res) => {
+  try {
+    const newProduct = new Product(req.body);
+    await newProduct.save();
+    res.status(200).json({ msg: "Product Created" });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const getProducts = async (req, res) => {
   res.json({
