@@ -11,9 +11,12 @@ const createProduct = async (req, res) => {
 };
 
 const getProducts = async (req, res) => {
-  res.json({
-    msg: "Mensaje enviado",
-  });
+  try {
+    const products = await Product.find();
+    res.status(200).json(products);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getProduct = async (req, res) => {};
